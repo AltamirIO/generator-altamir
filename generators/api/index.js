@@ -1,12 +1,7 @@
 const Generator = require('yeoman-generator')
 
 module.exports = class extends Generator {
-  constructor(args, opts) {
-    // cli arguments
-    super(args, opts)
-  }
-
-  async prompting () {
+  async prompting() {
     this.answers = await this.prompt([
       {
         type: 'input',
@@ -35,7 +30,7 @@ module.exports = class extends Generator {
   }
 
   // create package.json
-  createPackageJson () {
+  createPackageJson() {
     this.fs.extendJSON(this.destinationPath('package.json'), {
       name: this.answers.projectName,
       version: this.answers.projectVersion,
@@ -45,7 +40,7 @@ module.exports = class extends Generator {
   }
 
   // install dependencies
-  installDeps () {
+  installDeps() {
     // dependencies
     this.yarnInstall([
       'express',
@@ -56,7 +51,7 @@ module.exports = class extends Generator {
     this.yarnInstall([
       '@altamir/standards-tsconfig',
       '@altamir/standards-tslint',
-    ], {'dev': true})
+    ], { dev: true })
   }
 
   // copy files
