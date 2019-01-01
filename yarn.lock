@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@altamir/standards-eslint-base@^1.0.0":
+"@altamir/eslint-config-altamir@^1.0.0":
   version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@altamir/standards-eslint-base/-/standards-eslint-base-1.0.0.tgz#cf963942eae9aeb3a41a9d3d60204d9b5c3c9e7e"
-  integrity sha512-QPVr6jjWqJeuk6uxR153C2txv6RmxljHd7xKsSdN14GL7zjXelcRC0el7FA1lJb9NZmDnY1kDd/WDvX/Kgt6aw==
+  resolved "https://registry.yarnpkg.com/@altamir/eslint-config-altamir/-/eslint-config-altamir-1.0.0.tgz#338ff2664f487460f7249d844223bdd67fe9e2e9"
+  integrity sha512-YDYzYQ9THw5tp+VFijSNUglBHcwuAICVaBLC4AuBi7odA8CgsL4opE1LpWB+IGk5JJgc/Hwn/8HkW/Fn54Rdmw==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"

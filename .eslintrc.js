@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['@altamir/standards-eslint-base'],
+  extends: ['@altamir/eslint-config-altamir'],
 }

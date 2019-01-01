@@ -23,6 +23,6 @@
     "yeoman-generator": "^3.2.0"
   },
   "devDependencies": {
-    "@altamir/standards-eslint-base": "^1.0.0"
+    "@altamir/eslint-config-altamir": "^1.0.0"
   }
 }
