@@ -1,0 +1,28 @@
+{
+  "name": "generator-altamir",
+  "version": "0.1.0",
+  "description": "A project generator for Altamir",
+  "files": [
+    "generators"
+  ],
+  "main": "generators/app/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/altamirio/generator-sensible-api.git"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "altamir"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/altamirio/generator-sensible-api/issues"
+  },
+  "homepage": "https://github.com/altamirio/generator-sensible-api#readme",
+  "dependencies": {
+    "yeoman-generator": "^3.2.0"
+  },
+  "devDependencies": {
+    "@altamir/standards-eslint-base": "^1.0.0"
+  }
+}

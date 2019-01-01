@@ -1,0 +1,3 @@
+{
+    "extends": "@altamir/standards-tsconfig/tsconfig.json"
+}
