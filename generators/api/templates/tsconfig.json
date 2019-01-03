@@ -1,3 +1,9 @@
 {
-    "extends": "@altamir/standards-tsconfig/tsconfig.json"
+    "extends": "@altamir/standards-tsconfig/tsconfig.json",
+    "include": [
+        "./src/**/*"
+    ],
+    "compilerOptions": {
+        "outDir": "dist"
+    }
 }
