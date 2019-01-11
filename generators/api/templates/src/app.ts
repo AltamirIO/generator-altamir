@@ -1,27 +1,23 @@
 import * as dotenv from 'dotenv'
 dotenv.config()
 
+import 'reflect-metadata'
+
 import * as bodyParser from 'body-parser'
 import * as compression from 'compression'
+import * as errorHandler from 'errorhandler'
 import * as express from 'express'
 import * as helmet from 'helmet'
-import * as mongoose from 'mongoose'
 import * as morgan from 'morgan'
 import * as passport from 'passport'
 import authRouter from './api/auth'
-import graphqlRouter from './api/graphql'
+import { StartGraphQL } from './api/data'
 import Cron from './config/cron'
-import { connectionHandlers, connectOptions } from './config/db'
 import { HttpError } from './config/errorHandler'
 import httpErrorModule from './config/errorHandler/sendHttpError'
+import { stream } from './config/logger'
 
 const app = express()
-
-// db
-const MONGO_URI: string = `${process.env.MONGO_URI}`
-mongoose.connect(MONGO_URI, connectOptions)
-const db: mongoose.Connection = mongoose.connection
-connectionHandlers(db)
 
 // cron
 Cron.init()
@@ -38,6 +34,10 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(passport.initialize())
 
 // error handler
+if (app.get('env') === 'development') {
+  app.use(errorHandler())
+}
+
 app.use(httpErrorModule)
 app.use((error: Error, req: express.Request, res: any, next: express.NextFunction) => {
   if (typeof error === 'number') {
@@ -57,13 +57,10 @@ app.use((error: Error, req: express.Request, res: any, next: express.NextFunctio
 }
 })
 
-// use morgan in development
-if (app.get('env') === 'development') {
-  app.use(morgan('tiny'))
-}
+app.use(morgan('tiny', { stream }))
 
 // routes
 app.use('/auth', authRouter)
-app.use('/graphql', graphqlRouter)
+StartGraphQL(app)
 
 export default app

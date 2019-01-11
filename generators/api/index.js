@@ -31,7 +31,7 @@ module.exports = class generator extends Generator {
   // create package.json
   createPackageJson() {
     this.fs.extendJSON(this.destinationPath('package.json'), {
-      name: this.answers.projectName.replace(' ', '-'),
+      name: this.answers.projectName.replace(/ /g, '-'),
       version: this.answers.projectVersion,
       description: this.answers.projectDescription,
       license: 'GTFO',
@@ -60,10 +60,10 @@ module.exports = class generator extends Generator {
     )
 
     // copy .env.example to .env
-    this.fs.copy(
-      this.templatePath('.env.example'),
-      this.destinationRoot('.env'),
-    )
+    // this.fs.copy(
+    //   this.templatePath('.env.example'),
+    //   this.destinationRoot('.env'),
+    // )
   }
 
   // install dependencies
@@ -79,11 +79,16 @@ module.exports = class generator extends Generator {
       'express',
       'helmet',
       'jsonwebtoken',
-      'mongoose',
+      'mailgun-js',
       'passport',
       'passport-jwt',
       'passport-local',
+      'reflect-metadata',
+      'sql.js',
+      'typeorm',
       'validator',
+      'vesper',
+      'winston',
     ])
 
     // dev dependencies
@@ -91,7 +96,6 @@ module.exports = class generator extends Generator {
       '@altamir/standards-tsconfig',
       '@altamir/standards-tslint',
       '@types/express',
-      '@types/mongoose',
       '@types/node',
       'morgan',
       'nodemon',
@@ -106,8 +110,10 @@ module.exports = class generator extends Generator {
     this.log('Congratulations! Your API is ready to go!')
     this.log('Go ahead and run:')
     this.log('')
-    this.log('  yarn dev')
+    this.log('  cp .env.example .env')
     this.log('')
-    this.log('and edit your .env variables. Good luck!')
+    this.log('and edit your .env variables.')
+    this.log('')
+    this.log('"yarn dev" starts the server. Good luck!')
   }
 }

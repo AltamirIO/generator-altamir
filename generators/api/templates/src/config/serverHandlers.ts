@@ -1,5 +1,5 @@
-/* tslint:disable no-console */
 import * as debug from 'debug'
+import { logger } from './logger'
 
 /**
  * @export
@@ -33,12 +33,12 @@ export function onError(error: NodeJS.ErrnoException, port: number | string | bo
 
   switch (error.code) {
     case 'EACCES':
-      console.error(`${bind} requires elevated privileges`)
+      logger.error(`${bind} requires elevated privileges`)
       process.exit(1)
 
       break
     case 'EADDRINUSE':
-      console.error(`${bind} is already in use`)
+      logger.error(`${bind} is already in use`)
       process.exit(1)
 
       break
@@ -54,5 +54,5 @@ export function onListening(): void {
   const addr: any = this.address()
   const bind: string = (typeof addr === 'string') ? `pipe ${addr}` : `port ${addr.port}`
 
-  console.info(`Listening on ${bind}`)
+  logger.info(`Listening on ${bind}`)
 }

@@ -4,6 +4,8 @@
         "./src/**/*"
     ],
     "compilerOptions": {
-        "outDir": "dist"
+        "outDir": "dist",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true
     }
 }

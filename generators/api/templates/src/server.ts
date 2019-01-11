@@ -1,4 +1,6 @@
 /* tslint:disable no-console */
+import 'reflect-metadata'
+
 import * as errorHandler from 'errorhandler'
 import app from './app'
 import * as serverHandlers from './config/serverHandlers'

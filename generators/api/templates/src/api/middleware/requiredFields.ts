@@ -25,6 +25,11 @@ interface IRequiredOptions {
 }
 
 // accepts an array of strings of the required fields, and an options object
+/**
+ * Add required fields to req object.
+ * @function
+ * @param {array} fields - fields that are required in req.params
+ */
 const requiredFields = (fields: string[], opts: IRequiredOptions = {}) => (
   req: Request,
   res: any,

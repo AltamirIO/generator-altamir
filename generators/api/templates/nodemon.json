@@ -2,6 +2,7 @@
     "watch": [
         "src",
         ".env",
-        "package.json"
+        "package.json",
+        "ormconfig.js"
     ]
 }

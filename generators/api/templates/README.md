@@ -2,6 +2,12 @@
 
 Welcome to your new API!
 
+## Routes
+
+- `/auth/*` - standard express routes handling authentication on the `User` entity.
+- `/graphql` - graphql endpoint
+- `/playground` (development environment only) - graphql helper playground
+
 ## Usage
 
 ### Development
@@ -10,8 +16,4 @@ Welcome to your new API!
 yarn dev
 ```
 
-### Production
-
-```cli
-npm start
-```
+GraphQL playground at `GET /playground`.

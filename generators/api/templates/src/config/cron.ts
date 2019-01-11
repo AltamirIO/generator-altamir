@@ -1,5 +1,6 @@
 /* tslint:disable no-unused-expression */
 import { CronJob } from 'cron'
+import { logger } from './logger'
 
 /**
  * @export
@@ -23,9 +24,7 @@ export default class Cron {
     const TEST_CRON_INTERVAL = '0 * * * * *'
 
     new CronJob(TEST_CRON_INTERVAL, (): void => {
-      /* tslint:disable no-console */
-      console.log('Hello, I am Cron! Please see /src/config/cron.ts', Date.now())
-      /* tslint:enable no-console */
+      logger.info('Hello, I am Cron! Please see /src/config/cron.ts')
     }, null, true)
   }
 }
